@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BÀI 5</title>
+  </head>
+  <body>
+    <h2>Tổng các số chẵn từ 0 đến 20:</h2>
+
+    <p id="ketqua"></p>
+
+    <script>
+      var tong = 0;
+
+      for (var i = 0; i <= 20; i++) {
+        if (i % 2 === 0) {
+          tong += i;
+        }
+      }
+
+      document.getElementById("ketqua").innerText = "Tổng = " + tong;
+    </script>
+  </body>
+</html>

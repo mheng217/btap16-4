@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BÀI 2</title>
+  </head>
+  <body>
+    <h2>Nhập vào 1 năm dương lịch:</h2>
+
+    <input id="nam" type="text" />
+
+    <button onclick="kiemTraNamNhuan()">Kiểm tra</button>
+
+    <p id="ketqua"></p>
+
+    <script>
+      function kiemTraNamNhuan() {
+        var nam = document.getElementById("nam").value;
+
+        nam = parseInt(nam);
+
+        var ketqua = "";
+
+        if (isNaN(nam)) {
+          ketqua = "Vui lòng nhập một số nguyên.";
+        } else {
+          if ((nam % 4 === 0 && nam % 100 !== 0) || nam % 400 === 0) {
+            ketqua = nam + " là năm nhuận.";
+          } else {
+            ketqua = nam + " không phải là năm nhuận.";
+          }
+        }
+
+        document.getElementById("ketqua").innerText = ketqua;
+      }
+    </script>
+  </body>
+</html>

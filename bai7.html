@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BÀI 7</title>
+  </head>
+  <body>
+    Nhập mảng (các phần tử cách nhau bằng dấu phẩy):<br />
+    <input id="mang" type="text" style="width: 300px" />
+    <br /><br />
+
+    <button onclick="xuatMang()">a. Xuất mảng</button>
+    <button onclick="daoNguoc()">b. Đảo ngược mảng</button>
+    <button onclick="sapXepTang()">c. Sắp xếp tăng dần</button>
+    <button onclick="tongChan()">d. Tổng các phần tử chẵn</button>
+    <br /><br />
+    Nhập phần tử cần tìm: <input id="phanTu" type="text" />
+    <button onclick="timPhanTu()">e. Tìm vị trí phần tử</button>
+
+    <h3>Kết quả:</h3>
+    <p id="ketqua"></p>
+
+    <script>
+      function layMang() {
+        var input = document.getElementById("mang").value;
+        return input.split(",").map(Number);
+      }
+
+      function xuatMang() {
+        var arr = layMang();
+        document.getElementById("ketqua").innerText = "Mảng: " + arr.join(", ");
+      }
+
+      function daoNguoc() {
+        var arr = layMang();
+        arr.reverse();
+        document.getElementById("ketqua").innerText =
+          "Mảng sau khi đảo ngược: " + arr.join(", ");
+      }
+
+      function sapXepTang() {
+        var arr = layMang();
+        arr.sort(function (a, b) {
+          return a - b;
+        });
+        document.getElementById("ketqua").innerText =
+          "Mảng sau khi sắp xếp tăng dần: " + arr.join(", ");
+      }
+
+      function tongChan() {
+        var arr = layMang();
+        var tong = 0;
+        for (var i = 0; i < arr.length; i++) {
+          if (arr[i] % 2 === 0) tong += arr[i];
+        }
+        document.getElementById("ketqua").innerText =
+          "Tổng các phần tử chẵn: " + tong;
+      }
+
+      function timPhanTu() {
+        var arr = layMang();
+        var x = Number(document.getElementById("phanTu").value);
+        var vitri = [];
+
+        for (var i = 0; i < arr.length; i++) {
+          if (arr[i] === x) {
+            vitri.push(i);
+          }
+        }
+
+        if (vitri.length > 0) {
+          document.getElementById("ketqua").innerText =
+            "Phần tử " + x + " có trong mảng tại vị trí: " + vitri.join(", ");
+        } else {
+          document.getElementById("ketqua").innerText =
+            "Không tìm thấy phần tử " + x + " trong mảng.";
+        }
+      }
+    </script>
+  </body>
+</html>

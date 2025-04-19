@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BÀI 3</title>
+  </head>
+  <body>
+    <h2>Giải phương trình bậc 2: ax² + bx + c = 0</h2>
+
+    Nhập a: <input id="a" type="text" /><br /><br />
+    Nhập b: <input id="b" type="text" /><br /><br />
+    Nhập c: <input id="c" type="text" /><br /><br />
+
+    <button onclick="giaiPT()">Giải phương trình</button>
+
+    <p id="ketqua"></p>
+
+    <script>
+      function giaiPT() {
+        var a = parseFloat(document.getElementById("a").value);
+        var b = parseFloat(document.getElementById("b").value);
+        var c = parseFloat(document.getElementById("c").value);
+
+        var ketqua = "";
+
+        if (a === 0) {
+          if (b === 0) {
+            ketqua =
+              c === 0
+                ? "Phương trình vô số nghiệm."
+                : "Phương trình vô nghiệm.";
+          } else {
+            let x = -c / b;
+            ketqua = "Phương trình bậc nhất. Nghiệm là: x = " + x;
+          }
+        } else {
+          var delta = b * b - 4 * a * c;
+
+          if (delta < 0) {
+            ketqua = "Phương trình vô nghiệm.";
+          } else if (delta === 0) {
+            var x = -b / (2 * a);
+            ketqua = "Phương trình có nghiệm kép: x = " + x;
+          } else {
+            var x1 = (-b + Math.sqrt(delta)) / (2 * a);
+            var x2 = (-b - Math.sqrt(delta)) / (2 * a);
+            ketqua =
+              "Phương trình có 2 nghiệm phân biệt:<br> x₁ = " +
+              x1 +
+              "<br> x₂ = " +
+              x2;
+          }
+        }
+
+        document.getElementById("ketqua").innerHTML = ketqua;
+      }
+    </script>
+  </body>
+</html>

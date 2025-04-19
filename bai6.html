@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BÀI 6</title>
+  </head>
+  <body>
+    <h2>Tính giai thừa của một số nguyên dương (n!)</h2>
+
+    Nhập số nguyên dương n: <input id="so" type="text" />
+    <button onclick="tinhGiaiThua()">Tính</button>
+
+    <p id="ketqua"></p>
+
+    <script>
+      function tinhGiaiThua() {
+        var n = parseInt(document.getElementById("so").value);
+        var kq = "";
+
+        if (isNaN(n)) {
+          kq = "Vui lòng nhập một số.";
+        } else if (n < 0 || !Number.isInteger(n)) {
+          kq = "Vui lòng nhập một số nguyên dương (>= 0).";
+        } else {
+          var gt = 1;
+          for (var i = 1; i <= n; i++) {
+            gt *= i;
+          }
+          kq = n + "! = " + gt;
+        }
+
+        document.getElementById("ketqua").innerText = kq;
+      }
+    </script>
+  </body>
+</html>

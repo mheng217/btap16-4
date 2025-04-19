@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BÀI 4</title>
+  </head>
+  <body>
+    <h2>Các số chẵn từ 0 đến 10:</h2>
+
+    <button onclick="inSoChan()">In số chẵn</button>
+
+    <p id="ketqua"></p>
+
+    <script>
+      function inSoChan() {
+        var chuoi = "";
+
+        for (var i = 0; i <= 10; i++) {
+          if (i % 2 === 0) {
+            chuoi += i + " ";
+          }
+        }
+
+        document.getElementById("ketqua").innerText = chuoi;
+      }
+    </script>
+  </body>
+</html>
